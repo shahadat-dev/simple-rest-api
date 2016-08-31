@@ -23,7 +23,7 @@ app.get('/', function(req, res) {
 
 app.get('/todo', function(req, res) {
 	console.log("get request from ", req.path);
-	res.send(["Hello todo app."]);
+	res.send(["Hello todo."]);
 });
 
 //listen
