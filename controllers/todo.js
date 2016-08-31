@@ -1,6 +1,14 @@
-function getAll(req, res) {
-	console.log("get request from ", req.path);
-	res.send(["Hello todo.", "Another todo"]);
+var todoModel = require('../data/models/todo');
+
+function getAll(req, res, next) {
+	
+	todoModel.find({}, function(err,result){
+		if(err){
+			return next(err);
+		}
+		res.send(result);
+	});
+	
 }
 
 module.exports = {
