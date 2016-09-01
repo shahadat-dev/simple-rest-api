@@ -5,5 +5,8 @@ router.route('/')
 	.get(todoCtrl.getAll)
 	.post(todoCtrl.add);
 
+router.route('/:id')
+	.delete(todoCtrl.delete);
+
 
 module.exports = router;

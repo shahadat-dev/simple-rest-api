@@ -14,7 +14,6 @@ function getAll(req, res, next) {
 
 // add a todo
 function add(req, res, next){
-	console.log(req.body);
 	todoModel.create(req.body, function(err, result){
 		if(err){
 			return next(err);
@@ -23,7 +22,20 @@ function add(req, res, next){
 	})
 }
 
+// delete a todo
+function del(req, res, next){
+	console.log(req.method, req.path, req.params);
+	todoModel.remove({_id:req.params.id}, function(err){
+		if(err){
+			console.log(err);
+			return next(err);
+		}
+		res.send({message: "1 todo deleted"});
+	})
+}
+
 module.exports = {
 	getAll: getAll,
-	add: add
+	add: add,
+	delete: del
 }
