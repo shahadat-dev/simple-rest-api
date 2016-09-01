@@ -3,4 +3,4 @@ var todoSchema = require('../schemas/todo');
 
 var todo = mongoose.model('todo', todoSchema);
 
-module.exports = todo; 
+module.exports = todo;
