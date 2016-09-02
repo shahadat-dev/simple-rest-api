@@ -34,8 +34,17 @@ function del(req, res, next){
 	})
 }
 
+//update todo
+function update(req, res, next){
+	todoModel.update({_id: req.params.id}, req.body, function(err, result){
+		if(err){ return next(err); }
+		res.send({message: "1 todo updated", data: result});
+	})
+}
+
 module.exports = {
 	getAll: getAll,
 	add: add,
-	delete: del
+	delete: del,
+	update: update
 }
